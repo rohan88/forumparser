@@ -1,0 +1,7 @@
+[ 'http://www.team-bhp.com/forum/attachments/motorbikes/1507470d1463322896-ktm-duke-390-ownership-experience-thread-whatsappimage20160515.jpg',
+  'http://www.team-bhp.com/forum/attachments/motorbikes/1507471d1463322896-ktm-duke-390-ownership-experience-thread-whatsappimage20160515-1.jpg',
+  'http://www.team-bhp.com/forum/attachments/motorbikes/1507524d1463336470-ktm-duke-390-ownership-experience-thread-ktm-duke-390-tyre-1.jpg',
+  'http://www.team-bhp.com/forum/attachments/motorbikes/1507525d1463336470-ktm-duke-390-ownership-experience-thread-ktm-duke-390-tyre-2.jpg',
+  'http://www.team-bhp.com/forum/attachments/motorbikes/1507527d1463336470-ktm-duke-390-ownership-experience-thread-ktm-duke-390-tyre-3.jpg',
+  'http://www.team-bhp.com/forum/attachments/motorbikes/1507529d1463336470-ktm-duke-390-ownership-experience-thread-ktm-duke-390-tyre-4.jpg' ]
+Time taken : 1590 ms
