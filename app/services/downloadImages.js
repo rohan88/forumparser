@@ -11,10 +11,10 @@ dload = require('./download');
 
 var dloadDest = "/Users/rohan/Downloads/dell_bkup/workbench/htmlParseDemo/downloads";
 
-var links = [];
+var links = [], cntr = 0;
 
 var pageNums = [], results = [];
-for(var page = 302 ; page <= 303 ; page++){
+for(var page = 300 ; page <= 303 ; page++){
 	/*links.push('Page ' + page);
 	urls.push("http://www.team-bhp.com/forum/motorbikes/138082-ktm-duke-390-ownership-experience-thread-"+page+".html");*/
 	if(page == 1){
@@ -70,17 +70,27 @@ var finalProcess = function(err, finalResult){
 	async.map(links, downloadFile, function(err, result){
 		if(err) console.log(err);
 		console.log("Time taken : " + (new Date().getTime() - start) + " ms");	
-	})
+	});
+
+	/*async.mapSeries(links, function(linkDet, cb){
+		setTimeout(function(){
+			console.log(((linkDet.idx/links.length) * 100) + "%");
+			cb();
+		}, 500)
+	}, function(err, result){
+		if(err) console.log(err);
+		console.log("Time taken : " + (new Date().getTime() - start) + " ms");	
+	})*/
 }
 
 
 function downloadFile(urlDet, cb){
 	var link = urlDet.link;
-	var fileName = urlDet.link.substring(urlDet.link.lastIndexOf('/'));
+	var fileName = '/' + urlDet.idx + '_' + urlDet.pno + '_' + urlDet.link.substring(urlDet.link.lastIndexOf('/') + 1);
 	var filePath = dloadDest + fileName;
 	dload.downloadFromUrl(link, filePath, function(err, dRes){
 		if(err) return cb(err);
-		console.log(fileName + " downloaded. Progress : " + ((urlDet.idx/links.length) * 100) + "%");
+		console.log(fileName + " downloaded. Progress : " + ((++cntr/links.length) * 100) + "%");
 		cb(null, dRes);
 	});
 }
