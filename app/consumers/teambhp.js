@@ -7,7 +7,7 @@ var async = require('async');
 var config = require('../../config/default');
 
 var threadLink = "http://www.team-bhp.com/forum/superbikes-imports/28828-superbikes-spotted-india%pageNum%.html"
-var from = 298, to = 301;
+var from = 199, to = 200;
 var elementName = 'img', elementAttr = 'src';
 var dloadCtr = 0, totalFiles = 0;
 var urls = [];
@@ -52,11 +52,11 @@ function downloadFilesFromLinks(allLinks){
 
 function downloadFile(urlDet, cb){
 	var link = urlDet.link;
-	var fileName = '/' + urlDet.pno + '_' + urlDet.idx + '_' + urlDet.link.substring(urlDet.link.lastIndexOf('/') + 1);
+	var fileName = '/' + urlDet.pno + '_' + urlDet.idx + '_' + link.substring(link.lastIndexOf('/') + 1);
 	var filePath = config.settings.download.destination + fileName;
 	dload.downloadFromUrl(link, filePath, function(err, dRes){
 		if(err) return cb(err);
-		console.log(fileName + " downloaded. Progress : " + ((++dloadCtr/totalFiles) * 100) + "%");
+		console.log(fileName + " downloaded. Progress : " + ((++dloadCtr/totalFiles) * 100).toFixed(2) + "%");
 		cb(null, dRes);
 	});
 }
